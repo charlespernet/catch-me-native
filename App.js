@@ -1,22 +1,24 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
-export default class App extends React.Component {
+import HomeScreen from './screens/HomeScreen';
+import OtherScreen from './screens/OtherScreen';
+
+const RootStack = createStackNavigator(
+  {
+    // Here is the routing
+    Home: HomeScreen,
+    Other: OtherScreen
+  },
+  {
+    initialRouteName: "Home"
+  }
+);
+
+const AppContainer = createAppContainer(RootStack);
+
+export default class App extends Component {
   render() {
-    console.log('bobo');
-    return (
-      <View style={styles.container}>
-        <Text>Stand up App.js to start working on your it is cool</Text>
-      </View>
-    );
+    return <AppContainer />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
