@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 
+// This tends to be replaced by an API Call
+import {lines} from '../data/lines';
+
 const styles = StyleSheet.create({
   container: {
    flex: 1,
@@ -14,23 +17,36 @@ const styles = StyleSheet.create({
 })
 
 class LinesList extends Component {
-  state = {
-    lines: [
-      {name: 'Tram A', key: 'ta'},
-      {name: 'Tram B', key: 'tb'},
-      {name: 'Tram C', key: 'tc'},
-      {name: 'Lianes 1', key: 'l1'},
-      {name: 'Lianes 2', key: 'l2'},
-      {name: 'Lianes 3', key: 'l3'},
-    ]
+  // Same Remark as Above
+  // This tends to be replaced by an API Call
+  // State will be fully removed once redux set
+  state = lines
+
+  _onPress = (item) => {
+    this.props.navigation.navigate('LineShow', {lineId: item.name})
   }
+
+  _renderLine = ({ item }) => {
+    return (
+      <Text 
+        style={styles.item} 
+        onPress={()=> this._onPress(item)} 
+      >
+        {item.name}
+      </Text>
+    )
+  }
+
+  _keyExtractor = (_item, index) => `transport#${index + 1}`;
 
   render() {
     return (
       <View style={styles.container}>
         <FlatList
           data={this.state.lines}
-          renderItem={({item}) => <Text ke={item.key}  style={styles.item}>{item.name}</Text>}
+          renderItem={this._renderLine}
+          keyExtractor={this._keyExtractor}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     );

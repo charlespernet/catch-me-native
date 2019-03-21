@@ -8,12 +8,8 @@ class HomeScreen extends Component {
   render() {
     return (
       <SafeAreaView style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Recherche</Text>
-        <LinesList />
-        <Button
-          title="Go to Other"
-          onPress={() => this.props.navigation.navigate('Other')}
-        />
+        <Text>TODO: Recherche</Text>
+        <LinesList navigation={this.props.navigation} />
       </SafeAreaView>
     );
   }

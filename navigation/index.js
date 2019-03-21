@@ -1,10 +1,10 @@
 import React from 'react';
 import { createDrawerNavigator, createStackNavigator, createAppContainer } from "react-navigation";
 import HomeScreen from '../screens/HomeScreen';
-import OtherScreen from '../screens/OtherScreen';
+import LineShow from '../screens/LineShow';
 
 // These 2 can be removed later once actual routing is done
-import { Text } from 'react-native';
+import { Text , Button } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 
 export const MainStack = createStackNavigator(
@@ -15,10 +15,13 @@ export const MainStack = createStackNavigator(
           title: 'Choisir une ligne',
       }
     },
-    Other: {
-      screen: OtherScreen,
-      navigationOptions: {
-          title: 'Autre écran',
+    LineShow: {
+      screen: LineShow,
+      navigationOptions: ({ navigation }) => {
+        const lineId = navigation.getParam('lineId');
+        return {
+          title: `${lineId} - Direction`,
+        }
       }
     }
   },
@@ -38,7 +41,7 @@ export const Drawer = createDrawerNavigator({
     screen: () => {
       return (
         <SafeAreaView>
-          <Text>Recherche</Text>
+          <Text>Could be login or anything</Text>
         </SafeAreaView>
       )
     }
