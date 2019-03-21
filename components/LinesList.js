@@ -10,10 +10,13 @@ const styles = StyleSheet.create({
    paddingTop: 22
   },
   item: {
-    padding: 10,
+    padding: 20,
     fontSize: 18,
-    height: 44,
   },
+  separator: {
+    height: 1,
+    backgroundColor: "#CED0CE",
+  }
 })
 
 class LinesList extends Component {
@@ -37,6 +40,8 @@ class LinesList extends Component {
     )
   }
 
+  _renderSeparator = () => <View style={styles.separator} />
+
   _keyExtractor = (_item, index) => `transport#${index + 1}`;
 
   render() {
@@ -45,6 +50,7 @@ class LinesList extends Component {
         <FlatList
           data={this.state.lines}
           renderItem={this._renderLine}
+          ItemSeparatorComponent={this._renderSeparator}
           keyExtractor={this._keyExtractor}
           showsVerticalScrollIndicator={false}
         />

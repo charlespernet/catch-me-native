@@ -40,7 +40,7 @@ export const Drawer = createDrawerNavigator({
   Login: {
     screen: () => {
       return (
-        <SafeAreaView>
+        <SafeAreaView style={{flex: 1, paddingTop: 50}}>
           <Text>Could be login or anything</Text>
         </SafeAreaView>
       )
