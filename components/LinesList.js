@@ -3,7 +3,6 @@ import { FlatList, StyleSheet, Text, View, TouchableOpacity } from 'react-native
 
 // This tends to be replaced by an API Call
 import { lines } from '../data/lines';
-import { white } from 'ansi-colors';
 
 const styles = StyleSheet.create({
   container: {
