@@ -3,7 +3,6 @@ import { FlatList, StyleSheet, Text, View, TouchableOpacity } from 'react-native
 
 // This tends to be replaced by an API Call
 import { lines } from '../data/lines';
-import { white } from 'ansi-colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -45,7 +44,6 @@ class LinesList extends Component {
   state = lines
 
   _onPress = (item) => {
-    console.log('pressed')
     this.props.navigation.navigate('LineShow', { lineId: item.name })
   }
 
