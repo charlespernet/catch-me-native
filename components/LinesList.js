@@ -8,7 +8,6 @@ import { white } from 'ansi-colors';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 22
   },
   lineContainer: {
     flex: 1,
@@ -18,7 +17,8 @@ const styles = StyleSheet.create({
   },
   itemText: {
     fontSize: 18,
-    paddingLeft: 5
+    paddingLeft: 5,
+    fontWeight: 'bold'
   },
   itemIcon: {
     borderRadius: 50,
