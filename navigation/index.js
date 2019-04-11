@@ -27,8 +27,12 @@ export const MainStack = createStackNavigator(
     },
     StopShow: {
       screen: StopShow,
-      navigationOptions: {
-        title: 'Vue du stop',
+      // This can be simplified to classic
+      navigationOptions: ({ navigation }) => {
+        const stopId = navigation.getParam('stopId');
+        return {
+          title: `Vue de l'arret ${stopId}`,
+        }
       }
     },
   },
