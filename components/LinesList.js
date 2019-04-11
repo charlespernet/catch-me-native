@@ -10,6 +10,12 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 22
   },
+  lineContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    padding: 20,
+    alignItems: 'center'
+  },
   itemText: {
     fontSize: 18,
     paddingLeft: 5
@@ -22,7 +28,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   itemIconText: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
     color: 'white',
   },
@@ -45,10 +51,10 @@ class LinesList extends Component {
 
   _renderLine = ({ item }) => {
     return (
-      <TouchableOpacity onPress={() => this._onPress(item)} activeOpacity={0.8} style={{ flex: 1, flexDirection: 'row', padding: 20, alignItems: 'center' }} >
+      <TouchableOpacity onPress={() => this._onPress(item)} activeOpacity={0.8} style={styles.lineContainer}>
         <View style={{ flex: 1 }} >
           <View style={[styles.itemIcon, { backgroundColor: item.color }]}>
-            <Text style={styles.itemIconText}>8</Text>
+            <Text style={styles.itemIconText}>{item.code}</Text>
           </View>
         </View>
         <View style={{ flex: 6 }}>
