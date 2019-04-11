@@ -16,11 +16,10 @@ class StopShow extends Component {
         </Text>
           <Text style={{ color: 'gray' }}>NOM DE L'ARRET</Text>
         </View>
-        <View style={{ borderTopWidth: 1 }}>
-          <Text style={{ color: 'gray' }}>PASSAGES SUIVANTS</Text>
-          <Text>14 min</Text>
-          <Text>14 min</Text>
-          <Text>14 min</Text>
+        <View style={{ borderTopWidth: 1, borderTopColor: 'gray', padding: 20, marginBottom: 10 }}>
+          <Text style={{ color: 'gray', fontSize: 18, marginBottom: 10 }}>PASSAGES SUIVANTS</Text>
+          <Text style={{ fontSize: 16 }}>14 min</Text>
+          <Text style={{ fontSize: 16 }}>14 min</Text>
         </View>
       </View>
     );
