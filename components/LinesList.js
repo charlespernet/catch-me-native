@@ -2,20 +2,29 @@ import React, { Component } from 'react';
 import { FlatList, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 // This tends to be replaced by an API Call
-import {lines} from '../data/lines';
+import { lines } from '../data/lines';
+import { white } from 'ansi-colors';
 
 const styles = StyleSheet.create({
   container: {
-   flex: 1,
-   paddingTop: 22
+    flex: 1,
+    paddingTop: 22
   },
   itemText: {
     fontSize: 18,
+    paddingLeft: 5
   },
   itemIcon: {
-    backgroundColor: 'red',
-    padding: 15,
     borderRadius: 50,
+    justifyContent: 'center',
+    height: 50,
+    width: 50,
+    alignItems: 'center',
+  },
+  itemIconText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'white',
   },
   separator: {
     height: 1,
@@ -31,23 +40,23 @@ class LinesList extends Component {
 
   _onPress = (item) => {
     console.log('pressed')
-    this.props.navigation.navigate('LineShow', {lineId: item.name})
+    this.props.navigation.navigate('LineShow', { lineId: item.name })
   }
 
   _renderLine = ({ item }) => {
     return (
-      <TouchableOpacity onPress={()=> this._onPress(item)} activeOpacity={0.8} style={{flex: 1, flexDirection: 'row', padding: 20}} >
-        <View style={{flex: 1}} >
-          <View style={styles.itemIcon}>
-            <Text style={{color: 'white'}}>8</Text>
+      <TouchableOpacity onPress={() => this._onPress(item)} activeOpacity={0.8} style={{ flex: 1, flexDirection: 'row', padding: 20, alignItems: 'center' }} >
+        <View style={{ flex: 1 }} >
+          <View style={[styles.itemIcon, { backgroundColor: item.color }]}>
+            <Text style={styles.itemIconText}>8</Text>
           </View>
         </View>
-        <View style={{flex: 6}}>
-          <Text style={styles.itemText} >
+        <View style={{ flex: 6 }}>
+          <Text style={styles.itemText}>
             {item.name}
           </Text>
         </View>
-      </TouchableOpacity>
+      </TouchableOpacity >
     )
   }
 
