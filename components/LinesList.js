@@ -44,7 +44,6 @@ class LinesList extends Component {
   state = lines
 
   _onPress = (item) => {
-    console.log('pressed')
     this.props.navigation.navigate('LineShow', { lineId: item.name })
   }
 
