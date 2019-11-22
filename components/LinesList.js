@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
   itemText: {
     fontSize: 18,
-    paddingLeft: 5,
+    marginLeft: 10,
     fontWeight: 'bold'
   },
   itemIcon: {
